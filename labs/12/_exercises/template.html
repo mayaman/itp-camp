@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title></title>
+<style>
+#sketch {
+	border:1px solid #000;
+}
+</style>
+</head>
+<body>
+<canvas id="sketch" width="480" height="720">
+</canvas>
+<script>
+document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+// keep track of a velocity
+var fps = 10;
+
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+
+	// initialize objects here
+	animation = setInterval(animate, fps);
+}
+
+function animate() {
+	
+	// clear the screen
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+
+	// draw shape
+	// change the position
+	circle.x = circle.x + dx;
+}
+
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+}
+</script>
+</body>
+</html>

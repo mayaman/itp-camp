@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title></title>
+<style>
+#sketch {
+	border:1px solid #000;
+}
+</style>
+</head>
+<body>
+<canvas id="sketch" width="480" height="720">
+</canvas>
+<script>
+document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+var circle;
+var dy = 2;
+var dx = 2;
+var acc_y = 0.1 
+var dampen_x = 0.95
+var dampen_y = 0.8
+var fps = 10;
+
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+
+	// start circle at center of width
+	circle = {'x': 25, 'y': sketch.offsetHeight / 2, 'r':25};
+	animation = setInterval(animate, fps);
+}
+
+function animate() {
+	
+	// clear the screen
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+
+	// draw circle at current position of circle object
+	draw_circle(circle.x, circle.y, circle.r);
+
+	// move the circle's position by velocity
+	circle.y = circle.y + dy;
+	circle.x = circle.x + dx;
+
+	// check vertical bounds
+	if (circle.y > sketch.offsetHeight - dy - circle.r || circle.y < (dy * -1) + circle.r) {
+		dy = dy * -1;
+	}
+
+	if (circle.x > sketch.offsetWidth - dx - circle.r || circle.x < (dx * -1) + circle.r) {
+		dx = dx * -1;
+	}
+}
+
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+}
+</script>
+</body>
+</html>

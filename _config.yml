@@ -1,0 +1,11 @@
+base_url: 
+domain: 
+res_base_url: resources
+pygments: true
+markdown: kramdown
+kramdown:
+  entity_output: numeric
+
+course_name: Programming for Beginners
+course_semester: ITP Camp
+

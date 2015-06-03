@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<title>{{ page.title }}</title> 
+	<link rel="stylesheet" type="text/css" href="{{ page.prefix }}{{ site.res_base_url }}/fonts/Bright/cmun-bright.css">
+	<link rel="stylesheet" type="text/css" href="{{ page.prefix }}{{ site.res_base_url }}/css/screen.css">
+	<script src="{{ page.prefix }}{{ site.res_base_url }}/js/jquery-1.6.3.min.js"></script>
+	<script src="{{ page.prefix }}{{ site.res_base_url }}/js/persistent-nav.js"></script>
+
+</head>
+<body id="index">
+<div id="hd">
+<h1>ITP Camp <span class="alt-header">Summer 2015!</span></h1>
+{% if page.chrome != 0 %}
+	{% include nav.html %}
+{% endif %}
+</div>
+<div id="bd">
+<div id="content">
+	{{ content }}
+</div>
+</div>
+
+<div id="ft">
+</div>
+</div>
+</body>
+</html>

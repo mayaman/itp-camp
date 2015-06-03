@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title></title>
+<style>
+#sketch {
+	border:1px solid #000;
+}
+</style>
+</head>
+<body>
+<canvas id="sketch" width="480" height="720">
+</canvas>
+<script>
+document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+var rectangle;
+var fps = 10;
+var go_left = false;
+var go_right = false;
+
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+
+	// start circle at left edge, centered vertically
+	rectangle = {'x':sketch.offsetWidth / 2, 'y':sketch.offsetHeight / 2, 'w':80, 'h':20};
+	animation = setInterval(animate, fps);
+
+	// keyboard events
+	document.addEventListener('keydown', function(event) {
+		if(event.keyCode === 37) {
+			go_left = true;
+		}
+
+		if(event.keyCode === 39) {
+			go_right = true;
+		}
+	});
+	document.addEventListener('keyup', function(event) {
+		if(event.keyCode === 37) {
+			go_left = false;
+		}
+
+		if(event.keyCode === 39) {
+			go_right = false;
+		}
+	});
+}
+
+
+
+function animate() {
+	
+	// clear the screen
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+
+
+	if(go_right) {
+		rectangle.x = rectangle.x + 5;
+	}
+
+	if(go_left) {
+		rectangle.x = rectangle.x - 5;
+	}
+
+	if (rectangle.x > sketch.offsetWidth - rectangle.w) {
+		rectangle.x = sketch.offsetWidth - rectangle.w;
+	} 
+	if (rectangle.x < 0) {
+		rectangle.x = 0
+	}
+
+	// draw circle at current position of circle object
+	context.fillRect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
+
+}
+
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+}
+</script>
+</body>
+</html>

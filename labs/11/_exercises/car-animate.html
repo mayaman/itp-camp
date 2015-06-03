@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<canvas id="sketch" width="800" height="600">
+</canvas>
+<script>
+document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+var car = {'x':-900, 'y':100};
+var dx = 2;
+var fps = 10;
+
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+	setInterval(animate, fps);
+}
+
+function animate() {
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+	draw_car(car.x, car.y);
+	car.x = car.x + dx;
+}
+
+function draw_circle(x, y, r) {
+	context.beginPath();
+	context.arc(x, y, r, 0, 2 * Math.PI, true);
+	context.closePath();
+	context.fill();
+}
+
+function draw_car(x, y) {
+	context.fillStyle = "#0000bb";
+	context.fillRect(x, y, 120, 40);
+	context.fillRect(x + 20, y - 30, 80, 30);
+	context.fillStyle = "#000000";
+	draw_circle(x + 30, y + 40, 20)
+	draw_circle(x + 90, y + 40, 20)
+}
+
+
+</script>
+</body>
+</html>

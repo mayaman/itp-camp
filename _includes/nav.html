@@ -1,0 +1,14 @@
+<div id="nav-container">
+<ul id="nav">
+{% if page.nav-state == 'index' %}
+	<li class="current-page">Slides</li>
+{% else %}
+	<li><a href="{{ page.prefix }}index.html">Slides</a></li>
+{% endif %}
+{% if page.nav-state == 'resources' %}
+	<li class="current-page">Resources</li>
+{% else %}
+	<li><a href="{{ page.prefix }}resources.html">Resources</a></li>
+{% endif %}
+</ul>
+</div>

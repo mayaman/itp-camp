@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{ page.title }}</title>
+	<link rel="stylesheet" type="text/css" href="{{ site.res_base_url }}/../../../resources/css/slides.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.res_base_url }}/../../../resources/css/syntax.css">
+</head>
+<body>
+{{ content }}
+<div id="progress-bar"></div>
+<script src="{{ site.res_base_url }}/../../../resources/js/slides.js"></script>
+<script>
+function loadPrintStyles() {
+		var link = document.getElementsByTagName("link")[0];
+		link.setAttribute("href", "../../resources/css/print.css");
+		var transform = 'scale(1)';
+		b.style.WebkitTransform = transform;
+		b.style.MozTransform = transform;
+		b.style.OTransform = transform;
+		b.style.msTransform = transform;
+		b.style.transform = transform;
+		return false;
+}
+
+function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regexS = "[\\?&]" + name + "=?([^&#]*)";
+		var regex = new RegExp(regexS);
+		var results = regex.exec(window.location.search);
+		if(results == null)
+				return undefined;
+		else
+				return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+		var printVersion = getParameterByName('print');
+		if(typeof(printVersion) != 'undefined' ) {
+				loadPrintStyles();
+		} else {
+				window.onload = init;
+		}
+});
+
+
+</script>
+</body>
+</html>

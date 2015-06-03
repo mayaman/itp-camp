@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<canvas id="sketch" width="800" height="600">
+</canvas>
+<script>
+document.addEventListener('DOMContentLoaded', main);
+
+var sketch;
+var context;
+var rectangle = {'x':0, 'y':100};
+var dx = 3;
+var fps = 10;
+
+function main() {
+	sketch = document.getElementById('sketch');
+	context = sketch.getContext("2d");
+	setInterval(animate, fps);
+}
+
+function animate() {
+	context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
+	context.fillRect(rectangle.x, rectangle.y, 120, 40);
+	rectangle.x = rectangle.x + dx;
+	if (rectangle.x >= sketch.offsetWidth - dx) {
+		dx = dx * -1;
+	} else if (rectangle.x <= 0 + dx) {
+		dx = dx * -1;
+	}
+}
+
+
+</script>
+</body>
+</html>

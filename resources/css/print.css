@@ -1,0 +1,36 @@
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+}
+body {
+	line-height: 1;
+	display: block;
+	transform: scale(1);
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html, body {
+	/* font-size: 0.5em; */
+}
+section {
+	margin:1em;
+	padding:1em;
+	border:2px solid #000;
+	min-height:20em; 
+	width:40em;
+}
+
