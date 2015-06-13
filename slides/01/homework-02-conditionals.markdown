@@ -11,7 +11,7 @@ prefix: ../../
 
 ### spanish
 
-Write a program that translates english words to Spanish.
+Write a program that translates English words to Spanish.
 
 * create a new file called __spanish.html__ 
 * setup an html file, and add script tags... start writing your JavaScript between the script tags
@@ -25,8 +25,8 @@ Write a program that translates english words to Spanish.
 {% highlight bash %}
 # Run 1
 (prompt) Give me a word in English...
-> gato
-cat
+> cat
+gato
 # Run 2
 (prompt) Give me a word in English...
 > bear
